@@ -366,6 +366,102 @@
     section { break-inside: avoid; }
     .masthead { padding-top: 8mm; }
   }
+
+  /* ── Motion ───────────────────────────────────────────────────── */
+  /* All animation is opt-in via the `.js-motion` class on <html>.
+     Print, no-JS, and reduced-motion users see the final state.    */
+
+  @keyframes settle-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes settle-name {
+    from { opacity: 0; transform: translateY(20px) scale(0.985); }
+    to   { opacity: 1; transform: translateY(0)    scale(1); }
+  }
+  @keyframes settle-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Masthead choreography */
+  html.js-motion .masthead .invocation {
+    opacity: 0;
+    animation: settle-fade 900ms 200ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  html.js-motion .masthead .name {
+    opacity: 0;
+    animation: settle-name 1100ms 350ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    will-change: transform, opacity;
+  }
+  html.js-motion .masthead .kicker {
+    opacity: 0;
+    animation: settle-up 800ms 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  html.js-motion .masthead .ornament {
+    opacity: 0;
+    animation: settle-up 700ms 1000ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  html.js-motion .opener {
+    opacity: 0;
+    animation: settle-up 850ms 1100ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* Scroll reveals (added by JS only) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Values hover — typographic, not card-like */
+  .value {
+    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .value h3,
+  .value h3 .num {
+    transition: color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @media (hover: hover) {
+    .value:hover           { transform: translateY(-1px); }
+    .value:hover h3,
+    .value:hover h3 .num   { color: var(--oxblood); }
+  }
+
+  /* Respect reduced motion + print */
+  @media (prefers-reduced-motion: reduce) {
+    html.js-motion .masthead .invocation,
+    html.js-motion .masthead .name,
+    html.js-motion .masthead .kicker,
+    html.js-motion .masthead .ornament,
+    html.js-motion .opener,
+    .reveal {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .value, .value h3, .value h3 .num { transition: none !important; }
+  }
+  @media print {
+    html.js-motion .masthead .invocation,
+    html.js-motion .masthead .name,
+    html.js-motion .masthead .kicker,
+    html.js-motion .masthead .ornament,
+    html.js-motion .opener,
+    .reveal {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -393,7 +489,7 @@
   </div>
 
   <!-- ── Personal ─────────────────────────────────────────────── -->
-  <section aria-labelledby="s-personal">
+  <section aria-labelledby="s-personal" data-reveal>
     <header class="section-head">
       <span class="numeral">I</span>
       <h2 id="s-personal">Personal</h2>
@@ -403,7 +499,7 @@
     <dl class="grid">
       <div class="row"><dt>Born</dt>      <dd>2 June 1998 · 8:10 PM<span class="qual">Odisha, India</span></dd></div>
       <div class="row"><dt>Religion</dt>  <dd>Hindu · Brahmin (Odia)</dd></div>
-      <div class="row"><dt>Rāshi</dt>     <dd>Kanyā (Virgo)<span class="qual">Nakshatra · Hasta</span></dd></div>
+      <div class="row"><dt>Rāshi</dt>     <dd>Siṁha (Leo)<span class="qual">Nakshatra · ______________</span></dd></div>
       <div class="row"><dt>Tongue</dt>    <dd>Odia<span class="qual">Fluent in English &amp; Hindi</span></dd></div>
       <div class="row"><dt>Lives in</dt>  <dd>Bengaluru, Karnataka<span class="qual">Native place · Berhampur, Odisha</span></dd></div>
       <div class="row"><dt>Diet</dt>      <dd>Vegetarian · teetotal</dd></div>
@@ -413,7 +509,7 @@
   </section>
 
   <!-- ── About / Personality ──────────────────────────────────── -->
-  <section aria-labelledby="s-about">
+  <section aria-labelledby="s-about" data-reveal>
     <header class="section-head">
       <span class="numeral">II</span>
       <h2 id="s-about">About Bibhupad</h2>
@@ -430,7 +526,7 @@
   </section>
 
   <!-- ── Values & Interests ───────────────────────────────────── -->
-  <section aria-labelledby="s-values">
+  <section aria-labelledby="s-values" data-reveal>
     <header class="section-head">
       <span class="numeral">III</span>
       <h2 id="s-values">Values &amp; Interests</h2>
@@ -466,7 +562,7 @@
   </section>
 
   <!-- ── Education ────────────────────────────────────────────── -->
-  <section aria-labelledby="s-edu">
+  <section aria-labelledby="s-edu" data-reveal>
     <header class="section-head">
       <span class="numeral">IV</span>
       <h2 id="s-edu">Education</h2>
@@ -486,7 +582,7 @@
   </section>
 
   <!-- ── Profession ───────────────────────────────────────────── -->
-  <section aria-labelledby="s-work">
+  <section aria-labelledby="s-work" data-reveal>
     <header class="section-head">
       <span class="numeral">V</span>
       <h2 id="s-work">Profession</h2>
@@ -512,7 +608,7 @@
   </section>
 
   <!-- ── Family ───────────────────────────────────────────────── -->
-  <section aria-labelledby="s-family">
+  <section aria-labelledby="s-family" data-reveal>
     <header class="section-head">
       <span class="numeral">VI</span>
       <h2 id="s-family">Family</h2>
@@ -535,7 +631,7 @@
   </section>
 
   <!-- ── Footer / contact ─────────────────────────────────────── -->
-  <footer class="colophon">
+  <footer class="colophon" data-reveal>
     <dl class="contact grid" style="grid-template-columns: 1fr;">
       <div class="row"><dt>Phone</dt>   <dd>_______________________________</dd></div>
       <div class="row"><dt>Email</dt>   <dd>_______________________________</dd></div>
@@ -549,5 +645,35 @@
   </footer>
 
 </article>
+
+<script>
+  (function () {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    document.documentElement.classList.add('js-motion');
+
+    var targets = document.querySelectorAll('[data-reveal]');
+    if (!targets.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('reveal', 'is-visible'); });
+      return;
+    }
+
+    targets.forEach(function (el) { el.classList.add('reveal'); });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>
