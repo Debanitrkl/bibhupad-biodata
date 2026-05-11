@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marriage Biodata — Bibhupad Tripathy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Italiana&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* warm paper tinted toward the oxblood hue (chroma 0.012 around 70-85°) */
+    --paper:        oklch(96.5% 0.012 80);
+    --paper-edge:   oklch(93%   0.015 78);
+    --ink:          oklch(22%   0.025 25);
+    --ink-soft:     oklch(38%   0.020 30);
+    --muted:        oklch(52%   0.018 35);
+    --rule:         oklch(78%   0.018 35);
+    --oxblood:      oklch(38%   0.110 22);
+    --oxblood-deep: oklch(30%   0.090 22);
+    --gilt:         oklch(62%   0.100 78);
+
+    --serif-display: "Italiana", "EB Garamond", Georgia, serif;
+    --serif-body:    "EB Garamond", "Iowan Old Style", Georgia, serif;
+    --deva:          "Tiro Devanagari Sanskrit", "EB Garamond", serif;
+
+    --measure: 64ch;
+
+    --space-2xs: 4px;
+    --space-xs:  8px;
+    --space-sm:  12px;
+    --space-md:  20px;
+    --space-lg:  32px;
+    --space-xl:  56px;
+    --space-2xl: 88px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--paper-edge);
+    color: var(--ink);
+    font-family: var(--serif-body);
+    font-feature-settings: "kern", "liga", "onum", "calt";
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Single A4 page, centered on screen, edge-to-edge on print */
+  .page {
+    width: min(210mm, 100%);
+    min-height: 297mm;
+    margin: clamp(16px, 4vw, 56px) auto;
+    background: var(--paper);
+    color: var(--ink);
+    padding: clamp(28px, 6vw, 64px) clamp(24px, 7vw, 72px);
+    position: relative;
+    box-shadow:
+      0 1px 0 oklch(88% 0.015 60),
+      0 30px 60px -30px oklch(20% 0.04 30 / 0.25),
+      0 60px 100px -60px oklch(20% 0.04 30 / 0.18);
+  }
+
+  /* a subtle inset frame, drawn as a single hairline — not a colored stripe */
+  .page::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+
+  /* ── Header ────────────────────────────────────────────────────── */
+  .masthead {
+    text-align: center;
+    padding: var(--space-md) 0 var(--space-lg);
+  }
+  .invocation {
+    font-family: var(--deva);
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: var(--oxblood);
+    letter-spacing: 0.02em;
+    margin: 0 0 var(--space-md);
+    font-style: italic;
+  }
+  .invocation .roman {
+    display: block;
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: 0.78em;
+    color: var(--muted);
+    letter-spacing: 0.16em;
+    margin-top: 4px;
+  }
+
+  .name {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(44px, 7.2vw, 78px);
+    line-height: 0.92;
+    color: var(--ink);
+    margin: 0 0 var(--space-sm);
+    letter-spacing: 0.005em;
+  }
+  .kicker {
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .ornament {
+    margin: var(--space-md) auto 0;
+    width: 180px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+    color: var(--gilt);
+  }
+  .ornament i {
+    display: block;
+    height: 1px;
+    background: currentColor;
+  }
+  .ornament span {
+    font-family: var(--serif-display);
+    font-size: 14px;
+    line-height: 1;
+    color: var(--oxblood);
+  }
+
+  /* ── Opening essay (personality first) ─────────────────────────── */
+  .opener {
+    max-width: 60ch;
+    margin: var(--space-lg) auto var(--space-xl);
+    text-align: center;
+    font-size: clamp(15.5px, 1.55vw, 17.5px);
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .opener p {
+    margin: 0;
+    font-style: italic;
+  }
+  .opener .lede {
+    font-style: normal;
+    font-family: var(--serif-display);
+    font-size: clamp(20px, 2.4vw, 26px);
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.005em;
+  }
+
+  /* ── Section scaffolding ───────────────────────────────────────── */
+  section {
+    margin: 0 0 var(--space-xl);
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: var(--space-md);
+    color: var(--oxblood);
+  }
+  .section-head h2 {
+    font-family: var(--serif-body);
+    font-weight: 500;
+    font-variant: small-caps;
+    letter-spacing: 0.22em;
+    font-size: 13.5px;
+    margin: 0;
+    color: var(--oxblood);
+  }
+  .section-head .numeral {
+    font-family: var(--serif-display);
+    font-size: 14px;
+    color: var(--gilt);
+    letter-spacing: 0.08em;
+  }
+  .section-head i {
+    height: 1px;
+    background: var(--rule);
+    align-self: center;
+    margin-top: 2px;
+  }
+
+  /* ── Data tables (Personal, Education, Profession) ─────────────── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(28px, 5vw, 56px);
+    row-gap: 10px;
+  }
+  .grid .row {
+    display: grid;
+    grid-template-columns: 11ch 1fr;
+    gap: 14px;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid color-mix(in oklch, var(--rule), var(--paper) 50%);
+  }
+  .grid .row dt {
+    font-variant: small-caps;
+    letter-spacing: 0.14em;
+    font-size: 11.5px;
+    color: var(--muted);
+    font-weight: 500;
+    margin: 0;
+  }
+  .grid .row dd {
+    margin: 0;
+    font-size: 15.5px;
+    color: var(--ink);
+    line-height: 1.45;
+    font-feature-settings: "onum", "kern", "liga";
+  }
+  .grid .row dd .qual {
+    display: block;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 13.5px;
+    margin-top: 1px;
+  }
+
+  /* full-width row (spans both columns) */
+  .grid .row.span {
+    grid-column: 1 / -1;
+    grid-template-columns: 11ch 1fr;
+  }
+
+  /* ── Personality / About prose ─────────────────────────────────── */
+  .prose {
+    max-width: var(--measure);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .prose p { margin: 0 0 14px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose .dropcap::first-letter {
+    font-family: var(--serif-display);
+    font-size: 3.5em;
+    line-height: 0.85;
+    float: left;
+    padding: 6px 10px 0 0;
+    color: var(--oxblood);
+  }
+
+  /* ── Values & interests (typographic, no cards) ────────────────── */
+  .values {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: clamp(28px, 5vw, 56px);
+    row-gap: 22px;
+  }
+  .value h3 {
+    margin: 0 0 4px;
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    color: var(--ink);
+    letter-spacing: 0.005em;
+  }
+  .value h3 .num {
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gilt);
+    margin-right: 8px;
+    letter-spacing: 0.04em;
+    vertical-align: 1px;
+  }
+  .value p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  /* ── Family ───────────────────────────────────────────────────── */
+  .family {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(28px, 5vw, 56px);
+    align-items: start;
+  }
+  .family .lead-prose {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 42ch;
+  }
+  .family .lead-prose p { margin: 0 0 12px; }
+  .family .roster .row {
+    grid-template-columns: 13ch 1fr;
+  }
+
+  /* ── Footer / contact ─────────────────────────────────────────── */
+  .colophon {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+  }
+  .colophon .contact .row {
+    grid-template-columns: 10ch 1fr;
+    border-bottom: none;
+    padding: 2px 0;
+  }
+  .colophon .contact .row dt {
+    font-size: 11px;
+  }
+  .colophon .contact .row dd {
+    font-size: 14.5px;
+  }
+  .closing {
+    text-align: right;
+    font-family: var(--serif-display);
+    font-size: 18px;
+    line-height: 1.3;
+    color: var(--oxblood);
+    max-width: 28ch;
+  }
+  .closing em {
+    display: block;
+    font-family: var(--serif-body);
+    font-style: italic;
+    font-size: 12.5px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* small screens ─ keep it readable, drop to one column */
+  @media (max-width: 720px) {
+    .grid, .values, .family, .colophon { grid-template-columns: 1fr; row-gap: 8px; }
+    .colophon { gap: 18px; }
+    .closing { text-align: left; }
+    .grid .row.span { grid-column: 1; }
+  }
+
+  /* ── Print: clean A4, no shadows, no body background ──────────── */
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+  @media print {
+    html, body { background: #fff; }
+    .page {
+      margin: 0;
+      width: 100%;
+      min-height: auto;
+      box-shadow: none;
+      padding: 0;
+    }
+    .page::before { inset: 0; border-color: var(--rule); }
+    section { break-inside: avoid; }
+    .masthead { padding-top: 8mm; }
+  }
+</style>
+</head>
+<body>
+<article class="page" role="document">
+
+  <!-- ── Masthead ─────────────────────────────────────────────── -->
+  <header class="masthead">
+    <p class="invocation" lang="sa">
+      ॥ श्री गणेशाय नमः ॥
+      <span class="roman">Shree Ganeshaya Namah</span>
+    </p>
+
+    <h1 class="name">Bibhupad&nbsp;Tripathy</h1>
+    <p class="kicker">Marriage Biodata · Vivāha Parichaya</p>
+
+    <div class="ornament" aria-hidden="true">
+      <i></i><span>✦</span><i></i>
+    </div>
+  </header>
+
+  <!-- ── Opener: personality first ────────────────────────────── -->
+  <div class="opener">
+    <p class="lede">An engineer at heart, a son of tradition by upbringing — happiest when work, family and quiet ritual meet on the same evening.</p>
+    <p>Twenty-seven, Bengaluru by way of Rourkela and Berhampur, looking forward to a partnership built on warmth, respect, and a shared sense of where one comes from.</p>
+  </div>
+
+  <!-- ── Personal ─────────────────────────────────────────────── -->
+  <section aria-labelledby="s-personal">
+    <header class="section-head">
+      <span class="numeral">I</span>
+      <h2 id="s-personal">Personal</h2>
+      <i></i>
+    </header>
+
+    <dl class="grid">
+      <div class="row"><dt>Born</dt>      <dd>2 June 1998 · 8:10 PM<span class="qual">Odisha, India</span></dd></div>
+      <div class="row"><dt>Religion</dt>  <dd>Hindu · Brahmin (Odia)</dd></div>
+      <div class="row"><dt>Rāshi</dt>     <dd>Kanyā (Virgo)<span class="qual">Nakshatra · Hasta</span></dd></div>
+      <div class="row"><dt>Tongue</dt>    <dd>Odia<span class="qual">Fluent in English &amp; Hindi</span></dd></div>
+      <div class="row"><dt>Lives in</dt>  <dd>Bengaluru, Karnataka<span class="qual">Native place · Berhampur, Odisha</span></dd></div>
+      <div class="row"><dt>Diet</dt>      <dd>Vegetarian · teetotal</dd></div>
+      <div class="row"><dt>Height</dt>    <dd>5′ 5″ &nbsp;(165 cm)</dd></div>
+      <div class="row"><dt>Complexion</dt><dd>______________</dd></div>
+    </dl>
+  </section>
+
+  <!-- ── About / Personality ──────────────────────────────────── -->
+  <section aria-labelledby="s-about">
+    <header class="section-head">
+      <span class="numeral">II</span>
+      <h2 id="s-about">About Bibhupad</h2>
+      <i></i>
+    </header>
+
+    <div class="prose">
+      <p class="dropcap">Bibhupad is the sort of person whose accomplishments arrive in conversation only when someone else mentions them. He grew up in a household where the day still begins with a small prayer and ends with a phone call home, and he has carried that rhythm into his life in Bengaluru — engineer by day, devoted son and steady friend by evening.</p>
+
+      <p>He reads widely, walks before sunrise, follows cricket the way only an Indian engineer can, and is happiest cooking a simple meal for the people he loves. He listens more than he speaks, and laughs easily once he knows you. Friends describe him as <em>grounded, dependable and quietly ambitious</em> — a man who keeps his word, his promises and his composure.</p>
+
+      <p>In a partner he hopes to find a thoughtful equal: someone with her own pursuits and opinions, who values family, can hold a slow conversation over chai, and is excited about building a home that is modern in outlook and traditional in spirit.</p>
+    </div>
+  </section>
+
+  <!-- ── Values & Interests ───────────────────────────────────── -->
+  <section aria-labelledby="s-values">
+    <header class="section-head">
+      <span class="numeral">III</span>
+      <h2 id="s-values">Values &amp; Interests</h2>
+      <i></i>
+    </header>
+
+    <div class="values">
+      <div class="value">
+        <h3><span class="num">i.</span>Family before everything</h3>
+        <p>Sundays are for parents, festivals are not negotiable, and big decisions are taken at the dinner table.</p>
+      </div>
+      <div class="value">
+        <h3><span class="num">ii.</span>Quiet discipline</h3>
+        <p>Daily walks, a vegetarian kitchen, no alcohol — a steady routine that has held since college.</p>
+      </div>
+      <div class="value">
+        <h3><span class="num">iii.</span>Lifelong curiosity</h3>
+        <p>Reads non-fiction and Odia poetry in equal measure; tinkers with hardware on weekends.</p>
+      </div>
+      <div class="value">
+        <h3><span class="num">iv.</span>Travel, slowly</h3>
+        <p>Prefers a week in one place to a country in a week. Recent corners — Hampi, Coorg, Puri, Spiti.</p>
+      </div>
+      <div class="value">
+        <h3><span class="num">v.</span>Cricket &amp; classical music</h3>
+        <p>A reliable Test-match companion, with a soft spot for Odissi and Hindustani vocal in the evenings.</p>
+      </div>
+      <div class="value">
+        <h3><span class="num">vi.</span>A modern, equal home</h3>
+        <p>Cooks, cleans, plans — believes a marriage is two careers, two voices, one household.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Education ────────────────────────────────────────────── -->
+  <section aria-labelledby="s-edu">
+    <header class="section-head">
+      <span class="numeral">IV</span>
+      <h2 id="s-edu">Education</h2>
+      <i></i>
+    </header>
+
+    <dl class="grid">
+      <div class="row span">
+        <dt>Graduation</dt>
+        <dd>B.Tech, Electronics &amp; Communication Engineering
+          <span class="qual">National Institute of Technology, Rourkela · 2017&nbsp;–&nbsp;2021</span>
+        </dd>
+      </div>
+      <div class="row"><dt>Class XII</dt><dd>CHSE Odisha · 87.0%<span class="qual">2017</span></dd></div>
+      <div class="row"><dt>Class X</dt> <dd>ICSE · 94.8%<span class="qual">2015</span></dd></div>
+    </dl>
+  </section>
+
+  <!-- ── Profession ───────────────────────────────────────────── -->
+  <section aria-labelledby="s-work">
+    <header class="section-head">
+      <span class="numeral">V</span>
+      <h2 id="s-work">Profession</h2>
+      <i></i>
+    </header>
+
+    <dl class="grid">
+      <div class="row span">
+        <dt>Role</dt>
+        <dd>Senior Software Engineer · Qualcomm, Bengaluru
+          <span class="qual">Embedded systems &amp; firmware · ~4.5 years of experience</span>
+        </dd>
+      </div>
+      <div class="row span">
+        <dt>Previously</dt>
+        <dd>Senior Software Engineer, Enphase Energy <span class="qual">Dec 2024 — Mar 2026</span>
+            Embedded Software Engineer, Analog Devices <span class="qual">Jul 2021 — Nov 2024</span>
+        </dd>
+      </div>
+      <div class="row"><dt>Income</dt>  <dd>Approx. ₹60 lakh per annum</dd></div>
+      <div class="row"><dt>Expertise</dt><dd>C, C++, Python · RTOS, ARM, Zephyr, Linux<span class="qual">Device drivers · networking · IoT &amp; firmware</span></dd></div>
+    </dl>
+  </section>
+
+  <!-- ── Family ───────────────────────────────────────────────── -->
+  <section aria-labelledby="s-family">
+    <header class="section-head">
+      <span class="numeral">VI</span>
+      <h2 id="s-family">Family</h2>
+      <i></i>
+    </header>
+
+    <div class="family">
+      <div class="lead-prose">
+        <p>Bibhupad is the younger of two sons in a settled, well-respected Odia Brahmin family from Berhampur, Odisha — a household where books, service and quiet hospitality have always shared the same shelf.</p>
+        <p>His father is a retired civil servant whose career in public administration shaped the family's values of discipline and integrity. His mother anchors the home. His elder brother is happily married, leaving the family experienced in welcoming a new member with warmth and care.</p>
+      </div>
+
+      <dl class="grid roster">
+        <div class="row span"><dt>Father</dt>  <dd>Sri _______________________<span class="qual">Retired civil servant, Government of Odisha</span></dd></div>
+        <div class="row span"><dt>Mother</dt>  <dd>Smt. _______________________<span class="qual">Homemaker</span></dd></div>
+        <div class="row span"><dt>Brother</dt> <dd>Elder · married &amp; well-settled<span class="qual">Sister-in-law — ________________</span></dd></div>
+        <div class="row span"><dt>Family</dt>  <dd>Nuclear · prosperous &amp; traditional<span class="qual">Native place — Berhampur, Odisha</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ── Footer / contact ─────────────────────────────────────── -->
+  <footer class="colophon">
+    <dl class="contact grid" style="grid-template-columns: 1fr;">
+      <div class="row"><dt>Phone</dt>   <dd>_______________________________</dd></div>
+      <div class="row"><dt>Email</dt>   <dd>_______________________________</dd></div>
+      <div class="row"><dt>Address</dt> <dd>_______________________________</dd></div>
+    </dl>
+
+    <div class="closing">
+      Looking forward to a meaningful new beginning.
+      <em>— with the blessings of family</em>
+    </div>
+  </footer>
+
+</article>
+</body>
+</html>
